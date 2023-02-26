@@ -1,0 +1,43 @@
+
+var buttonColors = ["red", "blue", "green", "yellow"];
+var gamePattern = [];
+
+function nextSequence()
+{
+    var randomNumber = Math.floor(Math.random() * 4);
+    return randomNumber;
+}
+
+var randomChosenColor = buttonColors[nextSequence()];
+gamePattern.push(randomChosenColor);
+
+$('#'+ randomChosenColor).fadeOut(100).fadeIn(100);
+
+var buttons = document.querySelectorAll(".btn");
+
+buttons.forEach(button => {
+    button.addEventListener('click', function(e){
+        
+        switch(e.target.id)
+        {
+            case 'blue':
+                var blue = new Audio("sounds/blue.mp3");
+                blue.play();
+                break;
+            case 'green':
+                var green = new Audio("sounds/green.mp3");
+                green.play();
+                break;
+            case 'red':
+                var red = new Audio("sounds/red.mp3");
+                red.play();
+                break;
+            case 'yellow':
+                var yellow = new Audio("sounds/yellow.mp3");
+                yellow.play();
+                break;
+        }
+    });
+});
+
+
